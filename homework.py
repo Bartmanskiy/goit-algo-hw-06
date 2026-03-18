@@ -36,12 +36,12 @@ class Record:
         if phone:
             self.phones.remove(phone)
         else:
-            raise PhoneNotFoundError(f"Phone {value} not found in {self.name.value}'s record")
+            raise ValueError(f"Phone {value} not found in {self.name.value}'s record")
     
     def edit_phone(self, old_value: str, new_value: str):
         phone = self.find_phone(old_value)
         if not phone:
-            raise PhoneNotFoundError(f"Phone {old_value} not found in {self.name.value}'s record")
+            raise ValueError(f"Phone {old_value} not found in {self.name.value}'s record")
         new_phone = Phone(new_value)
         phone.value = new_phone.value
     
